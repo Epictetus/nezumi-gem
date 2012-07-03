@@ -2,13 +2,14 @@ module Nezumi
   class Push
 
     def self.notification(message, opts = {})
-      raise URLNotSetError.new if ENV['NEZUMI_URL'].nil? || ENV['NEZUMI_URL'].empty?
-      raise BlankMessageError.new if message.nil? || message.empty?
-
+      url   = ENV['NEZUMI_URL']
       sound = opts[:sound]  || "default"
       push  = (opts[:push].nil? ? true : opts[:push])
 
-      RestClient.post(ENV['NEZUMI_URL'], { :message => message, :sound => sound, :push => push })
+      raise URLNotSetError.new if url.nil? || url.empty?
+      raise BlankMessageError.new if message.nil? || message.empty?
+
+      RestClient.post(url, { :message => message, :sound => sound, :push => push })
     end
 
   end
