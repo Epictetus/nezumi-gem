@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "nezumi"
   gem.require_paths = ["lib"]
   gem.version       = Nezumi::VERSION
+
+  gem.add_dependency "rest-client", ["~> 1.6.7"]
+  gem.add_development_dependency "webmock", ["~> 1.8.7"]
 end
