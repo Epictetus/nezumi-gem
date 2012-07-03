@@ -3,8 +3,8 @@ module Nezumi
 
     def self.notification(message, opts = {})
       url   = ENV['NEZUMI_URL']
-      sound = opts[:sound]  || "default"
-      push  = (opts[:push].nil? ? true : opts[:push])
+      sound = opts.fetch(:sound, "default")
+      push  = opts.fetch(:push, true)
 
       raise URLNotSetError.new if url.nil? || url.empty?
       raise BlankMessageError.new if message.nil? || message.empty?
