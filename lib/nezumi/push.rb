@@ -9,7 +9,7 @@ module Nezumi
       raise URLNotSetError.new if url.nil? || url.empty?
       raise BlankMessageError.new if message.nil? || message.empty?
 
-      RestClient.post(url, { :message => message, :sound => sound, :push => push })
+      RestClient.post(url, { :message => message, :sound => sound, :push => !!push })
     end
 
   end
