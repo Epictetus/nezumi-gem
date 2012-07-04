@@ -1,24 +1,20 @@
-# Nezumi
+# Nezumi Push
 
-TODO: Write a gem description
+**Nezumi Push is currently in private beta and will soon be available as a Heroku add-on**
+
+Nezumi Push allows you to send iOS push notifications from your Heroku app to members on your development team who use Nezumi.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'nezumi'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install nezumi
+    gem 'nezumi', git: "https://github.com/mwhuss/nezumi-gem.git"
 
 ## Usage
 
-TODO: Write usage instructions here
+    Nezumi::Push.notify "New User Signup!"
+    
+This will send a push notification to all users on your team who have push notifications enabled for your App
 
 ## Contributing
 
