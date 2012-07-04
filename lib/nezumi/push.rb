@@ -1,7 +1,7 @@
 module Nezumi
   class Push
 
-    def self.notification(message, opts = {})
+    def self.notify(message, opts = {})
       url   = ENV['NEZUMI_URL']
       sound = opts.fetch(:sound, "default")
       push  = opts.fetch(:push, true)
