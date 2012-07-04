@@ -7,7 +7,7 @@ module Nezumi
       push  = opts.fetch(:push, true)
 
       raise URLNotSetError.new if url.nil? || url.empty?
-      raise BlankMessageError.new if message.nil? || message.empty?
+      raise ArgumentError.new("Message must not be blank") if message.nil? || message.empty?
 
       RestClient.post(url, { :message => message, :sound => sound, :push => !!push })
     end

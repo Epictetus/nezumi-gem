@@ -11,13 +11,13 @@ class PushTest < Test::Unit::TestCase
   end
 
   def test_blank_message
-    assert_raises Nezumi::BlankMessageError do
+    assert_raises ArgumentError do
       Nezumi::Push.notify ""
     end
   end
 
   def test_nil_message
-    assert_raises Nezumi::BlankMessageError do
+    assert_raises ArgumentError do
       Nezumi::Push.notify nil
     end
   end
